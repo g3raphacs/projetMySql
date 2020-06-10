@@ -7,21 +7,7 @@
 </head>
 <body>
     <?php require_once('header.php');?>
-    <?php
-    // Connexion à la base de données
-    $dsn = 'mysql:dbname=projetmysql;host=localhost';
-    $user = 'root';
-    $password = '';
-
-    try {
-        $base = new PDO($dsn, $user, $password);
-        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'Connecté à la base de donnée';
-    } catch (PDOException $e) {
-        echo 'Connexion échouée : ' . $e->getMessage();
-    }
-
-    ?>
+    <?php require_once('connect.php');?>
 
     <h1>Insérer un utilisateur, lui mettre à jour son adresse mail puis supprimer l’utilisateur.</h1>
     <!-- définir les variables -->

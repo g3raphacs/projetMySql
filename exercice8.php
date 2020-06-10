@@ -7,23 +7,9 @@
 </head>
 <body>
     <?php require_once('header.php');?>
-    <?php
-    // Connexion à la base de données
-    $dsn = 'mysql:dbname=projetmysql;host=localhost';
-    $user = 'root';
-    $password = '';
+    <?php require_once('connect.php');?>
 
-    try {
-        $base = new PDO($dsn, $user, $password);
-        $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'Connecté à la base de donnée';
-    } catch (PDOException $e) {
-        echo 'Connexion échouée : ' . $e->getMessage();
-    }
-
-    ?>
-
-<h1>Afficher toutes les femmes:</h1>
+<h1>Afficher l'âge de chaque personne, puis la moyenne d’âge générale, celle des femmes puis celle des hommes:</h1>
 
 <?php 
 $reponse = $base->query("SELECT FLOOR(DATEDIFF( curdate(), birth_date)/365.25) AS age FROM table1");
